@@ -12,7 +12,7 @@ using Lab4.Interface;
 
 namespace Lab4.ViewModel
 {
-    public class Concert_ViewModel : INotifyPropertyChanged
+    public class ConcertViewModel : INotifyPropertyChanged
     {
         private Concert concert;
         private INavigationService navigationService;
@@ -39,7 +39,7 @@ namespace Lab4.ViewModel
             }
         }
 
-        public Concert_ViewModel(CommandFactory createCommand,Concert? existingConcert = null)
+        public ConcertViewModel(CommandFactory createCommand,Concert? existingConcert = null)
         {
             concert = existingConcert ?? new Concert("Default", DateTime.Today);
 
