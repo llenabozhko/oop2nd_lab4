@@ -1,12 +1,6 @@
 ﻿
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using Lab4.Class;
 using Lab4.DTO;
 
 namespace Lab4.Class

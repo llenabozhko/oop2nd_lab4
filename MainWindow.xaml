@@ -5,8 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab4"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow"
+        Height="450"
+        Width="800">
+    <Grid Margin="5">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <DataGrid Name="concertsGrid"
+                  ItemsSource="{Binding Concerts}"
+                  SelectedItem="{Binding SelectedConcert}"
+                  AutoGenerateColumns="False"
+                  SelectionMode="Single"
+                  Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                  Margin="0,0,0,10">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Organizer"
+                        Binding="{Binding Organizer}"/>
+                <DataGridTextColumn Header="Date"
+                        Binding="{Binding Date, StringFormat=d}"/>
+                <DataGridTextColumn Header="Performances"
+                        Binding="{Binding Performances.Count}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        <Button Grid.Column="0"
+                Grid.Row="1"
+                Content="Add Concert"
+                Command="{Binding AddConcertCommand}"/>
+        <Button Grid.Column="1"
+                Grid.Row="1"
+                Content="Edit Concert"
+                Command="{Binding EditConcertCommand}"
+                CommandParameter="{Binding SelectedItem, ElementName=concertsGrid}"/>
+
 
     </Grid>
 </Window>

@@ -2,7 +2,6 @@
 using System.Runtime.CompilerServices;
 using System.Collections.ObjectModel;
 
-using Lab4.Class;
 using Lab4.DTO;
 
 namespace Lab4.Class

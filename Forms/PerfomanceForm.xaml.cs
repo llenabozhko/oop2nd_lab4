@@ -1,6 +1,5 @@
 using System.Windows;
 using Lab4.Class;
-using Lab4.DTO;
 using Lab4.Interface;
 using Lab4.ViewModel;
 using Lab4.Service;

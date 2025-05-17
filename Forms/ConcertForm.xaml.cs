@@ -1,9 +1,5 @@
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
-using System.Windows.Data;
 using Lab4.Class;
-using Lab4.DTO;
 using Lab4.Interface;
 using Lab4.ViewModel;
 using Lab4.Service;
@@ -33,8 +29,5 @@ namespace Lab4.Forms
       };
       DataContext = vm;
     }
-
-
-
   }
 }

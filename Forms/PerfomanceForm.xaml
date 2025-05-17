@@ -1,0 +1,59 @@
+<Window x:Class="Lab4.Forms.PerfomanceForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:Lab4"
+        mc:Ignorable="d"
+        Title="Perfomance"
+    Height="450"
+    Width="400">
+  <Window.Resources>
+    <Style TargetType="TextBox">
+      <Style.Triggers>
+        <Trigger Property="Validation.HasError"
+            Value="True">
+          <Setter Property="ToolTip"
+                  Value="{Binding RelativeSource={RelativeSource Self},
+                                        Path=(Validation.Errors)[0].ErrorContent}"/>
+        </Trigger>
+      </Style.Triggers>
+    </Style>
+  </Window.Resources>
+
+  <Grid Margin="10">
+    <StackPanel Orientation="Vertical"
+        VerticalAlignment="Top">
+
+      <TextBlock Text="Type of the work:"
+          FontWeight="Bold"
+          Margin="0,0,0,5"/>
+
+      <ComboBox ItemsSource="{Binding WorkTypes}"
+                SelectedItem="{Binding The_Work}"
+                Margin="0,0,0,10"/>
+
+      <TextBlock Text="Performer full name:"
+          FontWeight="Bold"/>
+      <TextBox Text="{Binding PerformerFullName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+          Margin="0,0,0,10"/>
+
+
+      <TextBlock Text="Duration of performance"
+          FontWeight="Bold"></TextBlock>
+      <TextBox Margin="5"
+          Text="{Binding Duration, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"></TextBox>
+
+      <TextBlock Text="Title"
+          FontWeight="Bold"></TextBlock>
+      <TextBox Margin="5"
+          Text="{Binding Title, UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}"></TextBox>
+
+      <Button Content="OK"
+          Width="100"
+          HorizontalAlignment="Left"
+          Command="{Binding OkCommand}"/>
+
+    </StackPanel>
+  </Grid>
+</Window>

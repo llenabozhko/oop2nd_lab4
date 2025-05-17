@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls.Primitives;
-using Lab4.Class;
-using Lab4.DTO;
+﻿using Lab4.Class;
 using Lab4.Interface;
 using Lab4.Forms;
-using Lab4.ViewModel;
 
 namespace Lab4.Service
 {
