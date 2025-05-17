@@ -1,0 +1,43 @@
+<Window x:Class="Lab4.Concert_Form"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:Lab4"
+        mc:Ignorable="d"
+        Title="Concert_Form" Height="500" Width="800">
+        <Grid Margin="10">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+
+                        <TextBlock Text="Organizer:" FontWeight="Bold"/>
+                        <TextBox Text="{Binding Organizer, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+
+                        <TextBlock Text="Date:" FontWeight="Bold"/>
+                        <DatePicker SelectedDate="{Binding Date, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10"/>
+                        <TextBlock Text="Performances:" FontWeight="Bold"></TextBlock>
+                        <DataGrid Name="performancesGrid"
+                                ItemsSource="{Binding Performances}"
+                                  SelectedItem="{Binding SelectedPerformance, Mode=TwoWay}"
+                                  AutoGenerateColumns="False"
+                                  IsReadOnly="True"
+                                  Width="Auto"
+                                  Height="200"
+                                  Margin="0,0,0,10">
+                                <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Title" Binding="{Binding Title}" />
+                                        <DataGridTextColumn Header="Performer" Binding="{Binding PerformerFullName}" />
+                                        <DataGridTextColumn Header="Work Type" Binding="{Binding The_Work}" />
+                                        <DataGridTextColumn Header="Duration" Binding="{Binding Duration}" />
+                                </DataGrid.Columns>
+
+
+                        </DataGrid>
+
+
+                        <Button Content="Add performance" Width="100" HorizontalAlignment="Left" Margin="5" Command="{Binding AddPerformanceCommand}"></Button>
+                        <Button Content="OK" Width="100" HorizontalAlignment="Left" Margin="5" Command="{Binding OkCommand}"/>
+                        <Button Content="Edit performance" Width="100" HorizontalAlignment="Left" Margin="5" Command="{Binding EditPerformanceCommand}"></Button>
+
+                </StackPanel>
+        </Grid>
+</Window>
